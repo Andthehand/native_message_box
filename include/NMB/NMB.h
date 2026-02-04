@@ -18,7 +18,7 @@
 
 namespace NMB
 {
-#ifdef defined(__linux__)
+#if defined(__linux__)
     class Gaurd {
         public:
         Gaurd() {
@@ -47,7 +47,7 @@ namespace NMB
     };
     
     
-    Result show( const char* p_title, const char* p_message, Icon icon )
+    inline Result show( const char* p_title, const char* p_message, Icon icon )
     {
 #if defined(_WIN32)
     
