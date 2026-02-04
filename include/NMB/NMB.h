@@ -18,6 +18,20 @@
 
 namespace NMB
 {
+#ifdef defined(__linux__)
+    class Gaurd {
+        public:
+        Gaurd() {
+            if (!gtk_init_check(0, nullptr)) {
+                throw std::runtime_error("Failed to initialize GTK.");
+            }
+        }
+        ~Gaurd() {
+            // No explicit cleanup needed for GTK in this context
+		}
+    };
+#endif // defined(__linux__)
+
     
     enum Result
     {
@@ -92,7 +106,7 @@ namespace NMB
             return NMB::Result::CANCEL;
         
 #elif defined(__linux__)
-
+        Gaurd gtk;
         GtkMessageType gtk_message_type;
 
         switch( icon )

@@ -61,8 +61,8 @@ endif()
 
 
 # ===================
-# EXAMPLE APPLICATION
+# LIBRARY
 # ===================
 
-add_executable( native_message_box_example example/main.cpp )
-target_include_directories( native_message_box_example PRIVATE include )
+add_library( nmb INTERFACE )
+target_include_directories( nmb INTERFACE include )
